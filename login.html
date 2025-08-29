@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Options</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    /* Login button */
+    .login-btn {
+      padding: 12px 25px;
+      background: #007BFF;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .login-btn:hover { background: #0056b3; }
+
+    /* Dropdown menu */
+    .dropdown {
+      margin-top: 15px;
+      display: none;
+    }
+
+    select {
+      width: 250px;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    /* Forms */
+    .form {
+      display: none;
+      margin: 20px auto;
+      width: 300px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    .form h3 { text-align: center; }
+    .form input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .form button {
+      width: 100%;
+      padding: 10px;
+      background: #28a745;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form button:hover { background: #1e7e34; }
+  </style>
+</head>
+<body>
+
+  <!-- Login Button -->
+  <button class="login-btn" onclick="toggleDropdown()">Login</button>
+
+  <!-- Dropdown for options -->
+  <div class="dropdown" id="dropdownMenu">
+    <select id="loginSelect" onchange="showForm()">
+      <option value="">-- Select Option --</option>
+      <option value="admin">Admin Login</option>
+      <option value="user">User Login</option>
+      <option value="signup">Signup</option>
+    </select>
+  </div>
+
+  <!-- Admin Login Form -->
+  <div class="form" id="adminForm">
+    <h3>Admin Login</h3>
+    <input type="text" placeholder="Admin Username">
+    <input type="password" placeholder="Password">
+    <button>Login</button>
+  </div>
+
+  <!-- User Login Form -->
+  <div class="form" id="userForm">
+    <h3>User Login</h3>
+    <input type="text" placeholder="User Email">
+    <input type="password" placeholder="Password">
+    <button>Login</button>
+  </div>
+
+  <!-- Signup Form -->
+  <div class="form" id="signupForm">
+    <h3>Signup</h3>
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Signup</button>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      let dropdown = document.getElementById("dropdownMenu");
+      dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+    }
+
+    function showForm() {
+      let select = document.getElementById("loginSelect").value;
+      document.getElementById("adminForm").style.display = "none";
+      document.getElementById("userForm").style.display = "none";
+      document.getElementById("signupForm").style.display = "none";
+
+      if (select === "admin") {
+        document.getElementById("adminForm").style.display = "block";
+      } else if (select === "user") {
+        document.getElementById("userForm").style.display = "block";
+      } else if (select === "signup") {
+        document.getElementById("signupForm").style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>

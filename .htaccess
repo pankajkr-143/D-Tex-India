@@ -1,0 +1,28 @@
+RewriteEngine On
+
+# Handle the space in the filename
+RewriteRule ^main$ "D.tex indai.html" [L]
+
+# Redirect root to index.php
+DirectoryIndex index.php
+
+# Handle 404 errors
+ErrorDocument 404 /index.php
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Prevent access to sensitive files
+<Files "*.db">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.log">
+    Order allow,deny
+    Deny from all
+</Files> 
