@@ -180,7 +180,7 @@
         <div class="footer">
             <p><strong>Default Admin Credentials:</strong></p>
             <p>Email: admin@dtexindia.com | Password: admin123</p>
-            <p>&copy; 2024 D TEX INDIA • All Rights Reserved</p>
+            <p>&copy; 2024 Developed By: UnstopableDeal Technology</p>
         </div>
     </div>
 </body>

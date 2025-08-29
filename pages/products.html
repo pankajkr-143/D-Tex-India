@@ -14,8 +14,8 @@ session_start();
 
 <style>
   :root{
-    --bg:#ffffff; --card:#FFD100; --muted:#475569; --text:#044C97;
-    --brand:#004C97; --brand2:#FFD100; --accent:#2CAB57;
+    --bg:#ffffff; --card:#FFD100; --muted:#1e40af; --text:#1e3a8a;
+    --brand:#1e40af; --brand2:#FFD100; --accent:#059669;
     --radius:20px; --shadow:0 20px 40px rgba(0,0,0,.1);
     --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
@@ -265,7 +265,9 @@ session_start();
       <a href="about.html">About Us</a>
       <a href="products.html" class="active">Our Products</a>
       <a href="founder.html">Our Founder</a>
-      <a href="D.tex indai.html#enquiry">Enquiry</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="user_profile.php">My Profile</a>
       <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
         <!-- User is logged in - Show Profile Icon -->
         <div class="user-profile-dropdown">
@@ -324,7 +326,7 @@ session_start();
 
   <div class="grid">
     <article class="card product" data-category="yarn">
-      <img src="3.jpg" alt="Nylon Twisted Yarn">
+      <img src="../assets/images/3.jpg" alt="Nylon Twisted Yarn">
       <h3>Nylon Twisted Yarn</h3>
       <p class="muted">High strength & uniformity for broad applications.</p>
       <div class="spec">Denier: 40D–300D • Twist: Custom • Colors: Dyed/Raw White</div>
@@ -332,7 +334,7 @@ session_start();
     </article>
 
     <article class="card product" data-category="yarn">
-      <img src="2.jpg" alt="DTY">
+      <img src="../assets/images/2.jpg" alt="DTY">
       <h3>Draw Texturised Yarn (DTY)</h3>
       <p class="muted">High-bulk, high-stretch. Ideal for apparel/home textiles.</p>
       <div class="spec">Denier: 75D–300D • Intermingled/Non-IM • Semi/Full Dull</div>
@@ -340,7 +342,7 @@ session_start();
     </article>
 
     <article class="card product" data-category="yarn">
-      <img src="1.jpg" alt="Jari / Metallic">
+      <img src="../assets/images/1.jpg" alt="Jari / Metallic">
       <h3>Jari / Metallic Yarn</h3>
       <p class="muted">Shimmering effects for sarees, trims & décor.</p>
       <div class="spec">Types: M/2, M/12 etc. • Shades: Gold/Silver/Custom</div>
@@ -348,7 +350,7 @@ session_start();
     </article>
 
     <article class="card product" data-category="fabric">
-      <img src="4.jpg" alt="Fabrics">
+      <img src="../assets/images/4.jpg" alt="Fabrics">
       <h3>Fabrics</h3>
       <p class="muted">Knits, woven, upholstery and technical textiles.</p>
       <div class="spec">GSM: 80–350 • Width: 44–72" • Finishes: Custom</div>
@@ -356,7 +358,7 @@ session_start();
     </article>
 
     <article class="card product" data-category="weaving">
-      <img src="5.jpg" alt="Sizing Beam">
+      <img src="../assets/images/5.jpg" alt="Sizing Beam">
       <h3>Sizing Beam</h3>
       <p class="muted">Precision beams for consistent warping & weaving.</p>
       <div class="spec">Custom sizes • High uniformity • QC checked</div>
@@ -364,7 +366,7 @@ session_start();
     </article>
 
     <article class="card product" data-category="garments">
-      <img src="6.jpg" alt="Garments">
+      <img src="../assets/images/6.jpg" alt="Garments">
       <h3>Garments</h3>
       <p class="muted">Private label development & sourcing support.</p>
       <div class="spec">MOQs flexible • Design support • Export ready</div>
@@ -455,24 +457,28 @@ session_start();
   
   <div class="grid">
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.03 PM (1).jpeg" alt="Raw Material Testing">
       <h3>Raw Material Testing</h3>
       <p class="muted">Comprehensive testing of all raw materials before processing begins.</p>
       <span class="chip">Testing</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.04 PM (1).jpeg" alt="Process Control">
       <h3>Process Control</h3>
       <p class="muted">Continuous monitoring and control of all manufacturing processes.</p>
       <span class="chip">Control</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM (2).jpeg" alt="Final Inspection">
       <h3>Final Inspection</h3>
       <p class="muted">Thorough final inspection before packaging and dispatch.</p>
       <span class="chip">Inspection</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM.jpeg" alt="Lab Testing">
       <h3>Lab Testing</h3>
       <p class="muted">Advanced laboratory testing for strength, color, and durability.</p>
       <span class="chip">Lab</span>
@@ -503,7 +509,8 @@ session_start();
         <li><a href="../D.tex indai.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Our Products</a></li>
-        <li><a href="founder.html">Our Founder</a></li>
+        <li><a href="founder.html">Our Founder</a>
+      <a href="gallery.html">Gallery</a></li>
         <li><a href="enquiry.html">Contact Us</a></li>
       </ul>
     </div>
@@ -524,15 +531,15 @@ session_start();
       <div class="contact-info">
         <p>📍 Ring Road, Surat, Gujarat, India</p>
         <p>📧 info@dtexindia.com</p>
-        <p>📞 +91-9999999999</p>
-        <p>💬 <a href="https://wa.me/919999999999?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">WhatsApp</a></p>
+        <p>📞 +91-8780674899</p>
+        <p>💬 <a href="https://wa.me/918780674899?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">WhatsApp</a></p>
       </div>
     </div>
   </div>
   
   <div class="footer-bottom">
     <div class="footer-bottom-content">
-      <p>© <span id="year"></span> D TEX INDIA • All Rights Reserved</p>
+      <p>© <span id="year"></span> Developed By: UnstopableDeal Technology</p>
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>

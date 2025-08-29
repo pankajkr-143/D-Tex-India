@@ -14,8 +14,8 @@ session_start();
 
 <style>
   :root{
-    --bg:#ffffff; --card:#FFD100; --muted:#475569; --text:#044C97;
-    --brand:#004C97; --brand2:#FFD100; --accent:#2CAB57;
+    --bg:#ffffff; --card:#FFD100; --muted:#1e40af; --text:#1e3a8a;
+    --brand:#1e40af; --brand2:#FFD100; --accent:#059669;
     --radius:20px; --shadow:0 20px 40px rgba(0,0,0,.1);
     --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
@@ -266,7 +266,9 @@ session_start();
       <a href="about.html" class="active">About Us</a>
       <a href="products.html">Our Products</a>
       <a href="founder.html">Our Founder</a>
-      <a href="../D.tex indai.html#enquiry">Enquiry</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="user_profile.php">My Profile</a>
       <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
         <!-- User is logged in - Show Profile Icon -->
         <div class="user-profile-dropdown">
@@ -385,24 +387,28 @@ session_start();
   
   <div class="grid">
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-29 at 11.56.57 AM (2).jpeg" alt="ISO 9001:2015 Quality Management">
       <h3>ISO 9001:2015</h3>
       <p class="muted">Quality Management System certification ensuring consistent quality across all processes.</p>
       <span class="chip">Quality</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.03 PM (1).jpeg" alt="OEKO-TEX Standard 100 Safety">
       <h3>OEKO-TEX® Standard 100</h3>
       <p class="muted">Textile safety certification guaranteeing products are free from harmful substances.</p>
       <span class="chip">Safety</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM (2).jpeg" alt="Internal Quality Control">
       <h3>Internal QC</h3>
       <p class="muted">Denier/shade checks, lab testing, and process controls for quality assurance.</p>
       <span class="chip">Testing</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM.jpeg" alt="GOTS Organic Certification">
       <h3>GOTS Certification</h3>
       <p class="muted">Global Organic Textile Standard for organic fiber products where applicable.</p>
       <span class="chip">Organic</span>
@@ -417,24 +423,28 @@ session_start();
   
   <div class="grid">
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.01 PM.jpeg" alt="Apparel Textiles">
       <h3>Apparel</h3>
       <p class="muted">Fashion, sportswear, knitwear, and everyday clothing solutions.</p>
       <span class="chip">Fashion</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (1).jpeg" alt="Home Textiles">
       <h3>Home Textiles</h3>
       <p class="muted">Curtains, upholstery, bed & bath, and home decoration fabrics.</p>
       <span class="chip">Home</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (2).jpeg" alt="Automotive Textiles">
       <h3>Automotive</h3>
       <p class="muted">Seat fabrics, headliners, trims, and automotive interior solutions.</p>
       <span class="chip">Auto</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM.jpeg" alt="Decor & Accessories">
       <h3>Decor & Accessories</h3>
       <p class="muted">Sarees, trims, metallic accents, and decorative textile products.</p>
       <span class="chip">Decor</span>
@@ -466,6 +476,7 @@ session_start();
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Our Products</a></li>
         <li><a href="founder.html">Our Founder</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="enquiry.html">Contact Us</a></li>
       </ul>
     </div>
@@ -486,15 +497,15 @@ session_start();
       <div class="contact-info">
         <p>📍 Ring Road, Surat, Gujarat, India</p>
         <p>📧 info@dtexindia.com</p>
-        <p>📞 +91-9999999999</p>
-        <p>💬 <a href="https://wa.me/919999999999?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">WhatsApp</a></p>
+        <p>📞 +91-8780674899</p>
+        <p>💬 <a href="https://wa.me/918780674899?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">WhatsApp</a></p>
       </div>
     </div>
   </div>
   
   <div class="footer-bottom">
     <div class="footer-bottom-content">
-      <p>© <span id="year"></span> D TEX INDIA • All Rights Reserved</p>
+      <p>© <span id="year"></span> Developed By: UnstopableDeal Technology</p>
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>

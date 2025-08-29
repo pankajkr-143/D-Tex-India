@@ -18,8 +18,8 @@ session_start();
 
 <style>
   :root{
-    --bg:#ffffff; --card:#FFD100; --muted:#475569; --text:#044C97;
-    --brand:#004C97; --brand2:#FFD100; --accent:#2CAB57;
+    --bg:#ffffff; --card:#FFD100; --muted:#1e40af; --text:#1e3a8a;
+    --brand:#1e40af; --brand2:#FFD100; --accent:#059669;
     --radius:20px; --shadow:0 20px 40px rgba(0,0,0,.1);
     --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
@@ -170,6 +170,14 @@ session_start();
   .card:hover{transform:translateY(-8px);box-shadow:0 25px 50px rgba(0,0,0,0.15)}
   .card img,.card iframe{width:100%;height:220px;object-fit:cover;border-radius:15px;margin-bottom:16px;transition:transform 0.3s ease}
   .card:hover img{transform:scale(1.05)}
+  
+  /* GALLERY ENHANCEMENTS */
+  #gallery .grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  #gallery .card{overflow:hidden;position:relative}
+  #gallery .card img{height:250px;object-fit:cover;transition:all 0.4s ease}
+  #gallery .card:hover img{transform:scale(1.08);filter:brightness(1.1)}
+  #gallery .card::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(0,76,151,0.1));opacity:0;transition:opacity 0.3s ease}
+  #gallery .card:hover::after{opacity:1}
   .card h3{margin:16px 0 12px;font-size:20px;color:var(--brand);font-weight:700}
   .card p{margin:0 0 16px;line-height:1.6}
   .chip{display:inline-block;padding:8px 16px;border-radius:20px;background:var(--brand2);font-weight:700;color:#111;font-size:13px;box-shadow:0 2px 8px rgba(255,209,0,0.3)}
@@ -286,7 +294,9 @@ session_start();
       <a href="pages/about.html">About Us</a>
       <a href="pages/products.html">Our Products</a>
       <a href="pages/founder.html">Our Founder</a>
+      <a href="pages/gallery.html">Gallery</a>
       <a href="pages/enquiry.html">Enquiry</a>
+      <a href="pages/user_profile.php">My Profile</a>
       <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
         <!-- User is logged in - Show Profile Icon -->
         <div class="user-profile-dropdown">
@@ -378,18 +388,21 @@ session_start();
   
   <div class="grid">
     <div class="card">
+      <img src="assets/gallery/WhatsApp Image 2025-08-29 at 11.56.56 AM.jpeg" alt="D TEX INDIA Manufacturing Facility">
       <h3>Our Story</h3>
       <p class="muted">Based in Surat – India's textile hub, we combine innovation, quality and reliability to serve domestic and global markets.</p>
       <a href="pages/about.html" class="btn" style="margin-top: 10px;">Learn More</a>
     </div>
     
     <div class="card">
+      <img src="assets/gallery/WhatsApp Image 2025-08-29 at 11.56.57 AM (1).jpeg" alt="D TEX INDIA Production Excellence">
       <h3>Our Founder</h3>
       <p class="muted">Meet the visionary leader behind D TEX INDIA's success story and commitment to excellence.</p>
       <a href="pages/founder.html" class="btn" style="margin-top: 10px;">Meet Founder</a>
     </div>
     
     <div class="card">
+      <img src="assets/gallery/WhatsApp Image 2025-08-29 at 11.56.57 AM (2).jpeg" alt="Quality Control at D TEX INDIA">
       <h3>Quality Assurance</h3>
       <p class="muted">ISO 9001:2015 certified with OEKO-TEX® Standard 100 for textile safety and quality.</p>
       <a href="pages/about.html" class="btn" style="margin-top: 10px;">View Certifications</a>
@@ -401,10 +414,26 @@ session_start();
 <section class="section" id="industries">
   <h2>Industries We Serve</h2>
   <div class="grid">
-    <article class="card"><h3>Apparel</h3><p class="muted">Fashion, sportswear, knitwear.</p></article>
-    <article class="card"><h3>Home Textiles</h3><p class="muted">Curtains, upholstery, bed & bath.</p></article>
-    <article class="card"><h3>Automotive</h3><p class="muted">Seat fabrics, headliners, trims.</p></article>
-    <article class="card"><h3>Decor & Accessories</h3><p class="muted">Sarees, trims, metallic accents.</p></article>
+    <article class="card">
+      <img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.01 PM.jpeg" alt="Apparel Textiles">
+      <h3>Apparel</h3>
+      <p class="muted">Fashion, sportswear, knitwear.</p>
+    </article>
+    <article class="card">
+      <img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (1).jpeg" alt="Home Textiles">
+      <h3>Home Textiles</h3>
+      <p class="muted">Curtains, upholstery, bed & bath.</p>
+    </article>
+    <article class="card">
+      <img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (2).jpeg" alt="Automotive Textiles">
+      <h3>Automotive</h3>
+      <p class="muted">Seat fabrics, headliners, trims.</p>
+    </article>
+    <article class="card">
+      <img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM.jpeg" alt="Decor & Accessories">
+      <h3>Decor & Accessories</h3>
+      <p class="muted">Sarees, trims, metallic accents.</p>
+    </article>
   </div>
 </section>
 
@@ -428,13 +457,27 @@ session_start();
 <!-- GALLERY / PORTFOLIO -->
 <section class="section" id="gallery">
   <h2>Gallery / Portfolio</h2>
-  <p class="muted">Factory, products and exhibitions.</p>
+  <p class="muted">Factory, products and exhibitions showcasing our manufacturing excellence.</p>
   <div class="grid">
-    <!-- 🔁 Replace with your actual images/videos -->
-    <div class="card"><img src="https://images.unsplash.com/photo-1602600231221-412c1980d2e0?q=80&w=1600&auto=format&fit=crop" alt="Spools / Shop-floor"></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1610127533827-3c4b1f44c13a?q=80&w=1600&auto=format&fit=crop" alt="Weaving"></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1559718231-9f38c0baf7b5?q=80&w=1600&auto=format&fit=crop" alt="Fabric Collection"></div>
-    <div class="card"><iframe src="https://www.youtube.com/embed/uAaU0R_yxxU" title="Process Video" frameborder="0" allowfullscreen></iframe></div>
+    <!-- Factory & Production Images -->
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-29 at 11.56.56 AM.jpeg" alt="Textile Manufacturing Process"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-29 at 11.56.57 AM (1).jpeg" alt="Yarn Production Line"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-29 at 11.56.57 AM (2).jpeg" alt="Quality Control Station"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-29 at 11.56.57 AM.jpeg" alt="Textile Machinery"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-29 at 11.56.58 AM.jpeg" alt="Production Floor"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.01 PM.jpeg" alt="Yarn Spools"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (1).jpeg" alt="Manufacturing Equipment"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (2).jpeg" alt="Textile Processing"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM.jpeg" alt="Production Line"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.03 PM (1).jpeg" alt="Quality Testing"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.03 PM.jpeg" alt="Textile Machinery"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.04 PM (1).jpeg" alt="Yarn Manufacturing"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.04 PM (2).jpeg" alt="Production Facility"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.04 PM.jpeg" alt="Textile Processing Line"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM (1).jpeg" alt="Manufacturing Process"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM (2).jpeg" alt="Quality Control"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM.jpeg" alt="Textile Equipment"></div>
+    <div class="card"><img src="assets/gallery/WhatsApp Image 2025-08-28 at 8.41.06 PM.jpeg" alt="Production Floor View"></div>
   </div>
 </section>
 
@@ -444,19 +487,19 @@ session_start();
   <p class="muted">Updates on trends, fairs and company news.</p>
   <div class="grid">
     <article class="card">
-      <img src="1.jpg" alt="Update">
+      <img src="assets/images/1.jpg" alt="Update">
       <h3>New DTY Line Commissioned</h3>
       <p class="muted">Capacity boosted with improved lead times for export orders.</p>
       <a href="#" class="btn" style="margin-top:6px">Read More</a>
     </article>
     <article class="card">
-      <img src="2.jpg" alt="Sustainability">
+      <img src="assets/images/2.jpg" alt="Sustainability">
       <h3>Sustainability Initiatives</h3>
       <p class="muted">Our steps toward energy efficiency and waste reduction.</p>
       <a href="#" class="btn" style="margin-top:6px">Read More</a>
     </article>
     <article class="card">
-      <img src="3.jpg" alt="Export">
+      <img src="assets/images/3.jpg" alt="Export">
       <h3>Expanding Export Markets</h3>
       <p class="muted">Serving new regions with reliable supply and QC.</p>
       <a href="#" class="btn" style="margin-top:6px">Read More</a>
@@ -521,8 +564,8 @@ session_start();
         <h3>Reach Us</h3>
         <div class="contact-info">
           <p><b>D TEX INDIA</b><br/>Ring Road, Surat, Gujarat, India<br/>PIN Code: <b>395003</b></p>
-          <p><b>Email:</b> info@dtexindia.com<br/><b>Phone:</b> +91-9999999999</p>
-          <p><b>WhatsApp:</b> <a href="https://wa.me/919999999999?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">Chat Now</a></p>
+          <p><b>Email:</b> info@dtexindia.com<br/><b>Phone:</b> +91-8780674899</p>
+          <p><b>WhatsApp:</b> <a href="https://wa.me/918780674899?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">Chat Now</a></p>
         </div>
         <div class="map-container">
           <iframe title="Map" src="https://www.google.com/maps?q=Surat%2C%20Gujarat&output=embed" loading="lazy"></iframe>
@@ -568,6 +611,7 @@ session_start();
         <li><a href="pages/about.html">About Us</a></li>
         <li><a href="pages/products.html">Our Products</a></li>
         <li><a href="pages/founder.html">Our Founder</a></li>
+        <li><a href="pages/gallery.html">Gallery</a></li>
         <li><a href="pages/enquiry.html">Contact Us</a></li>
       </ul>
     </div>
@@ -588,15 +632,15 @@ session_start();
       <div class="contact-info">
         <p>📍 Ring Road, Surat, Gujarat, India</p>
         <p>📧 info@dtexindia.com</p>
-        <p>📞 +91-9999999999</p>
-        <p>💬 <a href="https://wa.me/919999999999?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">WhatsApp</a></p>
+        <p>📞 +91-8780674899</p>
+        <p>💬 <a href="https://wa.me/918780674899?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">WhatsApp</a></p>
       </div>
     </div>
   </div>
   
   <div class="footer-bottom">
     <div class="footer-bottom-content">
-      <p>© <span id="year"></span> D TEX INDIA • All Rights Reserved</p>
+      <p>© <span id="year"></span> Developed By: UnstopableDeal Technology</p>
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>

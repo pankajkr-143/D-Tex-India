@@ -18,8 +18,8 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
 
 <style>
   :root{
-    --bg:#ffffff; --card:#FFD100; --muted:#475569; --text:#044C97;
-    --brand:#004C97; --brand2:#FFD100; --accent:#2CAB57;
+    --bg:#ffffff; --card:#FFD100; --muted:#1e40af; --text:#1e3a8a;
+    --brand:#1e40af; --brand2:#FFD100; --accent:#059669;
     --radius:20px; --shadow:0 20px 40px rgba(0,0,0,.1);
     --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
@@ -358,7 +358,9 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
       <a href="about.html">About Us</a>
       <a href="products.html">Our Products</a>
       <a href="founder.html">Our Founder</a>
+      <a href="gallery.html">Gallery</a>
       <a href="enquiry.html">Enquiry</a>
+      <a href="user_profile.php" class="active">My Profile</a>
       <div class="user-profile-dropdown">
         <a href="user_profile.php" class="profile-toggle">
           <span class="profile-icon">👤</span>
@@ -453,21 +455,25 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
   <h2>Quick Actions</h2>
   <div class="grid">
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.01 PM.jpeg" alt="My Orders">
       <h3>📦 My Orders</h3>
       <p class="muted">View and track your orders</p>
       <button class="btn" onclick="viewOrders()">View Orders</button>
     </div>
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (1).jpeg" alt="My Enquiries">
       <h3>💬 My Enquiries</h3>
       <p class="muted">Check your enquiry status</p>
       <button class="btn" onclick="viewEnquiries()">View Enquiries</button>
     </div>
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (2).jpeg" alt="Contact Support">
       <h3>📞 Contact Support</h3>
       <p class="muted">Get help from our team</p>
       <button class="btn" onclick="contactSupport()">Contact Us</button>
     </div>
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM.jpeg" alt="WhatsApp Support">
       <h3>📱 WhatsApp Support</h3>
       <p class="muted">Quick chat with our team</p>
       <a href="https://wa.me/8780674899?text=Hello%20D%20TEX%20INDIA%2C%20I%20need%20support." target="_blank" class="btn">Chat Now</a>
@@ -480,16 +486,19 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
   <h2>Recent Activity</h2>
   <div class="grid">
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.03 PM (1).jpeg" alt="Account Created">
       <h3>📝 Account Created</h3>
       <p class="muted">Your account was successfully created</p>
       <span class="chip"><?php echo date('M j, Y'); ?></span>
     </div>
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.04 PM (1).jpeg" alt="Last Login">
       <h3>🔐 Last Login</h3>
       <p class="muted">You logged in successfully</p>
       <span class="chip"><?php echo date('M j, Y g:i A'); ?></span>
     </div>
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM (2).jpeg" alt="Email Verified">
       <h3>📧 Email Verified</h3>
       <p class="muted">Your email address is confirmed</p>
       <span class="chip">Verified</span>
@@ -520,7 +529,8 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
         <li><a href="../D.tex indai.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Our Products</a></li>
-        <li><a href="founder.html">Our Founder</a></li>
+        <li><a href="founder.html">Our Founder</a>
+      <a href="gallery.html">Gallery</a></li>
         <li><a href="enquiry.html">Contact Us</a></li>
       </ul>
     </div>
@@ -541,15 +551,15 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
       <div class="contact-info">
         <p>📍 Ring Road, Surat, Gujarat, India</p>
         <p>📧 info@dtexindia.com</p>
-        <p>📞 +91-9999999999</p>
-        <p>💬 <a href="https://wa.me/919999999999?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">WhatsApp</a></p>
+        <p>📞 +91-8780674899</p>
+        <p>💬 <a href="https://wa.me/918780674899?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">WhatsApp</a></p>
       </div>
     </div>
   </div>
   
   <div class="footer-bottom">
     <div class="footer-bottom-content">
-      <p>© <span id="year"></span> D TEX INDIA • All Rights Reserved</p>
+      <p>© <span id="year"></span> Developed By: UnstopableDeal Technology</p>
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>

@@ -509,7 +509,7 @@ $auth->requireAdmin();
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; <?php echo date('Y'); ?> D TEX INDIA • All Rights Reserved • Admin Panel</p>
+        <p>&copy; <?php echo date('Y'); ?> Developed By: UnstopableDeal Technology • Admin Panel</p>
     </footer>
 
     <script>

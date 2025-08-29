@@ -355,7 +355,7 @@ $auth->requireAuth();
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">📱</span>
-                    <div class="stat-label">+91-9999999999</div>
+                    <div class="stat-label">+91-8780674899</div>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">📍</span>
@@ -367,7 +367,7 @@ $auth->requireAuth();
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; <?php echo date('Y'); ?> D TEX INDIA • All Rights Reserved</p>
+        <p>&copy; <?php echo date('Y'); ?> Developed By: UnstopableDeal Technology</p>
     </footer>
 
     <script>

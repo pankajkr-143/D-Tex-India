@@ -160,8 +160,8 @@ ini_set('display_errors', 1);
 
 For technical support or questions:
 - Email: info@dtexindia.com
-- Phone: +91-9999999999
+- Phone: +91-8780674899
 
 ## License
 
-© 2024 D TEX INDIA • All Rights Reserved # D-Tex-India
+© 2024 Developed By: UnstopableDeal Technology # D-Tex-India

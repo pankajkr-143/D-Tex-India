@@ -6,8 +6,8 @@ session_start();
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Our Founder - D TEX INDIA</title>
-<meta name="description" content="Meet the visionary founder of D TEX INDIA - Leading the textile industry with innovation and excellence." />
+<title>Gallery - D TEX INDIA</title>
+<meta name="description" content="Explore our manufacturing facility, production processes, and quality control systems through our comprehensive gallery." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -164,44 +164,23 @@ session_start();
   .section h2::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:60px;height:4px;background:var(--brand2);border-radius:2px}
   .muted{color:var(--muted);font-size:clamp(16px,1.6vw,18px);line-height:1.6;text-align:center;margin-bottom:40px}
   
-  /* GRID / CARDS */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;max-width:1400px;margin:0 auto}
-  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;transition:all 0.3s ease;border:1px solid rgba(255,255,255,0.2)}
-  .card:hover{transform:translateY(-8px);box-shadow:0 25px 50px rgba(0,0,0,0.15)}
-  .card img,.card iframe{width:100%;height:220px;object-fit:cover;border-radius:15px;margin-bottom:16px;transition:transform 0.3s ease}
-  .card:hover img{transform:scale(1.05)}
-  .card h3{margin:16px 0 12px;font-size:20px;color:var(--brand);font-weight:700}
-  .card p{margin:0 0 16px;line-height:1.6}
-  .chip{display:inline-block;padding:8px 16px;border-radius:20px;background:var(--brand2);font-weight:700;color:#111;font-size:13px;box-shadow:0 2px 8px rgba(255,209,0,0.3)}
+  /* GALLERY GRID */
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;max-width:1400px;margin:0 auto}
+  .gallery-item{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:all 0.3s ease;border:1px solid rgba(255,255,255,0.2);position:relative}
+  .gallery-item:hover{transform:translateY(-8px);box-shadow:0 25px 50px rgba(0,0,0,0.15)}
+  .gallery-item img{width:100%;height:280px;object-fit:cover;transition:all 0.4s ease}
+  .gallery-item:hover img{transform:scale(1.08);filter:brightness(1.1)}
+  .gallery-item::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(0,76,151,0.1));opacity:0;transition:opacity 0.3s ease}
+  .gallery-item:hover::after{opacity:1}
+  .gallery-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.7);color:#fff;padding:15px;transform:translateY(100%);transition:transform 0.3s ease}
+  .gallery-item:hover .gallery-caption{transform:translateY(0)}
+  .gallery-caption h4{margin:0 0 5px;font-size:16px;font-weight:600}
+  .gallery-caption p{margin:0;font-size:14px;opacity:0.9}
   
-  /* FOUNDER SPECIFIC STYLES */
-  .founder-container{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:40px 30px}
-  .founder-photo{width:100%;max-width:400px;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform 0.3s ease;justify-self:center}
-  .founder-photo:hover{transform:scale(1.05)}
-  .founder-info h3{font-size:clamp(28px,3.5vw,36px);color:var(--brand);margin-bottom:20px;font-weight:700}
-  .founder-info p{font-size:clamp(16px,1.6vw,18px);line-height:1.8;color:var(--muted);margin-bottom:20px}
-  .founder-info strong{color:var(--brand);font-weight:700}
-  
-  .achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:60px}
-  .achievement-card{background:var(--card);border-radius:var(--radius);padding:30px;text-align:center;box-shadow:var(--shadow);transition:all 0.3s ease}
-  .achievement-card:hover{transform:translateY(-5px);box-shadow:0 25px 50px rgba(0,0,0,0.15)}
-  .achievement-number{font-size:48px;font-weight:800;color:var(--brand);margin-bottom:15px}
-  .achievement-card h4{font-size:18px;color:var(--brand);margin-bottom:10px;font-weight:700}
-  .achievement-card p{color:var(--muted);line-height:1.6;font-size:14px}
-  
-  .timeline{max-width:800px;margin:60px auto;position:relative}
-  .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:4px;background:var(--brand2);transform:translateX(-50%)}
-  .timeline-item{position:relative;margin-bottom:40px;display:flex;align-items:center}
-  .timeline-item:nth-child(odd){flex-direction:row}
-  .timeline-item:nth-child(even){flex-direction:row-reverse}
-  .timeline-content{background:var(--card);border-radius:var(--radius);padding:25px;box-shadow:var(--shadow);width:45%;position:relative}
-  .timeline-content::before{content:'';position:absolute;top:50%;width:0;height:0;border:10px solid transparent}
-  .timeline-item:nth-child(odd) .timeline-content::before{border-left-color:var(--card);right:-20px;transform:translateY(-50%)}
-  .timeline-item:nth-child(even) .timeline-content::before{border-right-color:var(--card);left:-20px;transform:translateY(-50%)}
-  .timeline-dot{position:absolute;left:50%;top:50%;width:20px;height:20px;background:var(--brand2);border-radius:50%;transform:translate(-50%,-50%);border:4px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-  .timeline-year{font-weight:700;color:var(--brand);font-size:18px;margin-bottom:10px}
-  .timeline-title{font-weight:700;color:var(--brand);margin-bottom:8px}
-  .timeline-desc{color:var(--muted);line-height:1.6}
+  /* FILTER BUTTONS */
+  .gallery-filters{display:flex;justify-content:center;gap:15px;margin-bottom:40px;flex-wrap:wrap}
+  .filter-btn{padding:12px 20px;border:2px solid var(--brand);background:transparent;color:var(--brand);border-radius:25px;font-weight:600;cursor:pointer;transition:all 0.3s ease}
+  .filter-btn:hover,.filter-btn.active{background:var(--brand);color:#fff;transform:translateY(-2px)}
   
   /* FOOTER */
   .footer{background:linear-gradient(135deg,#1e293b,#334155);color:#fff;margin-top:60px}
@@ -234,9 +213,8 @@ session_start();
   
   /* RESPONSIVE */
   @media (max-width:1200px){
-    .grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+    .gallery-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
     .hero-inner{padding:60px 25px}
-    .founder-container{gap:40px;padding:30px 25px}
   }
   
   @media (max-width:900px){
@@ -245,31 +223,18 @@ session_start();
     .menu-btn{display:block;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:10px 12px;font-weight:800;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
     .nav-links{position:fixed;left:15px;right:15px;top:70px;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border:1px solid #e5e7eb;border-radius:15px;padding:20px;display:none;flex-direction:column;box-shadow:var(--shadow)}
     .nav-wrap{padding:15px 20px}
-    .grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-    .card{padding:20px}
-    .founder-container{grid-template-columns:1fr;gap:40px;text-align:center}
-    .achievements-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px}
-    .timeline::before{left:20px}
-    .timeline-item{flex-direction:row !important}
-    .timeline-content{width:calc(100% - 60px);margin-left:60px}
-    .timeline-content::before{border-left-color:var(--card) !important;border-right-color:transparent !important;right:-20px !important;left:auto !important}
-    .timeline-dot{left:20px}
+    .gallery-grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+    .gallery-filters{flex-direction:column;align-items:center}
   }
   
   @media (max-width:600px){
     .hero-inner{padding:40px 15px}
     .section{padding:40px 15px}
     .nav-wrap{padding:12px 15px}
-    .grid{grid-template-columns:1fr;gap:20px}
+    .gallery-grid{grid-template-columns:1fr;gap:15px}
     .title{font-size:clamp(28px,7vw,36px)}
     .section h2{font-size:clamp(24px,6vw,32px)}
-    .card{padding:18px}
-    .btn{padding:12px 20px;font-size:14px}
-    .founder-container{padding:20px 15px;gap:30px}
-    .achievements-grid{grid-template-columns:1fr;gap:20px}
-    .achievement-card{padding:25px}
-    .timeline-content{padding:20px;margin-left:50px;width:calc(100% - 50px)}
-    .timeline-dot{left:15px;width:16px;height:16px}
+    .gallery-item img{height:220px}
   }
 </style>
 </head>
@@ -286,8 +251,8 @@ session_start();
       <a href="../D.tex indai.html">Home</a>
       <a href="about.html">About Us</a>
       <a href="products.html">Our Products</a>
-      <a href="founder.html" class="active">Our Founder</a>
-      <a href="gallery.html">Gallery</a>
+      <a href="founder.html">Our Founder</a>
+      <a href="gallery.html" class="active">Gallery</a>
       <a href="enquiry.html">Enquiry</a>
       <a href="user_profile.php">My Profile</a>
       <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
@@ -319,175 +284,178 @@ session_start();
 </nav>
 
 <!-- HERO -->
-<header class="hero">
+<header class="hero" id="home">
   <div class="hero-inner">
     <div>
-      <h1 class="title">Our Founder</h1>
-      <p class="sub">Meet the visionary leader behind D TEX INDIA's success story</p>
+      <strong class="title">Our Gallery</strong>
+      <h1>Manufacturing Excellence in Pictures</h1>
+      <p class="sub">Explore our state-of-the-art manufacturing facility, production processes, and quality control systems through our comprehensive photo gallery.</p>
       <div class="cta">
-        <a href="about.html" class="btn">Learn More</a>
-        <a href="products.html" class="btn alt">Our Products</a>
+        <a href="../D.tex indai.html" class="btn">Back to Home</a>
+        <a href="enquiry.html" class="btn alt">Get Quote</a>
       </div>
     </div>
-    <img class="hero-media" src="../assets/images/logo.jpeg" alt="Founder Photo">
+    <img class="hero-media" src="../assets/images/daga.webp" alt="D TEX INDIA Manufacturing Facility">
   </div>
 </header>
 
-<!-- FOUNDER PROFILE -->
+<!-- GALLERY FILTERS -->
 <section class="section">
-  <div class="founder-container">
-    <img src="../assets/images/logo.jpeg" alt="Founder Photo" class="founder-photo">
-    <div class="founder-info">
-      <h3>Mr. Aditya Mishra</h3>
-      <p>
-        Mr. Aditya Mishra is the visionary behind <strong>D TEX INDIA</strong>.
-        With years of experience in the textile industry, he has built the company 
-        on innovation, quality, and customer satisfaction.
-      </p>
-      <p>
-        His leadership has helped D TEX INDIA grow into a trusted name 
-        in premium yarns, fabrics, and textile solutions across India and beyond.
-      </p>
-      <p>
-        Starting from humble beginnings, Mr. Aditya Mishra has transformed 
-        D TEX INDIA into a leading manufacturer with a commitment to excellence 
-        and sustainable practices.
-      </p>
-      <p>
-        His vision extends beyond business success - he believes in creating 
-        value for customers, employees, and the community while maintaining 
-        the highest standards of quality and innovation.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section class="section" style="background: linear-gradient(135deg,#f8fafc,#f1f5f9);">
-  <h2>Key Achievements</h2>
-  <p class="muted">Milestones that define our journey to excellence</p>
+  <h2>Production Gallery</h2>
+  <p class="muted">Discover our manufacturing processes, quality control, and production excellence</p>
   
-  <div class="achievements-grid">
-    <div class="achievement-card">
-      <div class="achievement-number">25+</div>
-      <h4>Years Experience</h4>
-      <p>Decades of expertise in textile manufacturing and innovation</p>
-    </div>
-    
-    <div class="achievement-card">
-      <div class="achievement-number">500+</div>
-      <h4>Happy Clients</h4>
-      <p>Trusted partnerships with leading brands worldwide</p>
-    </div>
-    
-    <div class="achievement-card">
-      <div class="achievement-number">50+</div>
-      <h4>Countries Served</h4>
-      <p>Global reach with reliable supply chains</p>
-    </div>
-    
-    <div class="achievement-card">
-      <div class="achievement-number">100%</div>
-      <h4>Quality Commitment</h4>
-      <p>Unwavering dedication to product excellence</p>
-    </div>
+  <div class="gallery-filters">
+    <button class="filter-btn active" data-filter="all">All Photos</button>
+    <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
+    <button class="filter-btn" data-filter="quality">Quality Control</button>
+    <button class="filter-btn" data-filter="equipment">Equipment</button>
+    <button class="filter-btn" data-filter="facility">Facility</button>
   </div>
-</section>
-
-<!-- JOURNEY TIMELINE -->
-<section class="section">
-  <h2>Our Journey</h2>
-  <p class="muted">Key milestones in D TEX INDIA's growth story</p>
   
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <div class="timeline-year">1998</div>
-        <div class="timeline-title">Company Founded</div>
-        <div class="timeline-desc">Started as a small family business with a vision to revolutionize textile manufacturing</div>
+  <div class="gallery-grid">
+    <!-- Manufacturing Process -->
+    <div class="gallery-item" data-category="manufacturing">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-29 at 11.56.56 AM.jpeg" alt="Textile Manufacturing Process">
+      <div class="gallery-caption">
+        <h4>Manufacturing Process</h4>
+        <p>Advanced textile manufacturing technology</p>
       </div>
-      <div class="timeline-dot"></div>
     </div>
     
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <div class="timeline-year">2005</div>
-        <div class="timeline-title">First Export</div>
-        <div class="timeline-desc">Successfully entered international markets with premium quality products</div>
+    <div class="gallery-item" data-category="manufacturing">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-29 at 11.56.57 AM (1).jpeg" alt="Yarn Production Line">
+      <div class="gallery-caption">
+        <h4>Yarn Production Line</h4>
+        <p>High-speed yarn manufacturing</p>
       </div>
-      <div class="timeline-dot"></div>
     </div>
     
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <div class="timeline-year">2010</div>
-        <div class="timeline-title">ISO Certification</div>
-        <div class="timeline-desc">Achieved ISO 9001:2015 certification for quality management systems</div>
+    <div class="gallery-item" data-category="quality">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-29 at 11.56.57 AM (2).jpeg" alt="Quality Control Station">
+      <div class="gallery-caption">
+        <h4>Quality Control Station</h4>
+        <p>Rigorous quality testing procedures</p>
       </div>
-      <div class="timeline-dot"></div>
     </div>
     
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <div class="timeline-year">2015</div>
-        <div class="timeline-title">Technology Upgrade</div>
-        <div class="timeline-desc">Invested in state-of-the-art machinery for enhanced production capacity</div>
+    <div class="gallery-item" data-category="equipment">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-29 at 11.56.57 AM.jpeg" alt="Textile Machinery">
+      <div class="gallery-caption">
+        <h4>Textile Machinery</h4>
+        <p>State-of-the-art equipment</p>
       </div>
-      <div class="timeline-dot"></div>
     </div>
     
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <div class="timeline-year">2020</div>
-        <div class="timeline-title">Sustainability Initiative</div>
-        <div class="timeline-desc">Launched eco-friendly practices and sustainable manufacturing processes</div>
+    <div class="gallery-item" data-category="facility">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-29 at 11.56.58 AM.jpeg" alt="Production Floor">
+      <div class="gallery-caption">
+        <h4>Production Floor</h4>
+        <p>Spacious and organized workspace</p>
       </div>
-      <div class="timeline-dot"></div>
     </div>
     
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <div class="timeline-year">2024</div>
-        <div class="timeline-title">Global Expansion</div>
-        <div class="timeline-desc">Expanded operations to serve customers in over 50 countries worldwide</div>
+    <div class="gallery-item" data-category="manufacturing">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.01 PM.jpeg" alt="Yarn Spools">
+      <div class="gallery-caption">
+        <h4>Yarn Spools</h4>
+        <p>Perfectly wound yarn spools</p>
       </div>
-      <div class="timeline-dot"></div>
-    </div>
-  </div>
-</section>
-
-<!-- VISION & MISSION -->
-<section class="section" style="background: linear-gradient(135deg,#f8fafc,#f1f5f9);">
-  <h2>Vision & Mission</h2>
-  <p class="muted">The guiding principles that drive our success</p>
-  
-  <div class="grid">
-    <div class="card">
-      <img src="../assets/gallery/WhatsApp Image 2025-08-29 at 11.56.57 AM.jpeg" alt="D TEX INDIA Vision">
-      <h3>Our Vision</h3>
-      <p class="muted">To be the leading global provider of premium textile solutions, recognized for innovation, quality, and sustainability.</p>
-      <span class="chip">Future</span>
     </div>
     
-    <div class="card">
-      <img src="../assets/gallery/WhatsApp Image 2025-08-29 at 11.56.58 AM.jpeg" alt="D TEX INDIA Mission">
-      <h3>Our Mission</h3>
-      <p class="muted">To deliver exceptional textile products that exceed customer expectations while maintaining the highest standards of quality and environmental responsibility.</p>
-      <span class="chip">Purpose</span>
+    <div class="gallery-item" data-category="equipment">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (1).jpeg" alt="Manufacturing Equipment">
+      <div class="gallery-caption">
+        <h4>Manufacturing Equipment</h4>
+        <p>Precision engineering</p>
+      </div>
     </div>
     
-    <div class="card">
-      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.03 PM (1).jpeg" alt="D TEX INDIA Core Values">
-      <h3>Core Values</h3>
-      <p class="muted">Quality, Innovation, Customer Focus, Sustainability, and Integrity form the foundation of everything we do.</p>
-      <span class="chip">Values</span>
+    <div class="gallery-item" data-category="manufacturing">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (2).jpeg" alt="Textile Processing">
+      <div class="gallery-caption">
+        <h4>Textile Processing</h4>
+        <p>Advanced processing technology</p>
+      </div>
     </div>
     
-    <div class="card">
-      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.04 PM (2).jpeg" alt="D TEX INDIA Future Goals">
-      <h3>Future Goals</h3>
-      <p class="muted">Expanding our global footprint while maintaining our commitment to quality and sustainable practices.</p>
-      <span class="chip">Growth</span>
+    <div class="gallery-item" data-category="manufacturing">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM.jpeg" alt="Production Line">
+      <div class="gallery-caption">
+        <h4>Production Line</h4>
+        <p>Efficient production workflow</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item" data-category="quality">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.03 PM (1).jpeg" alt="Quality Testing">
+      <div class="gallery-caption">
+        <h4>Quality Testing</h4>
+        <p>Comprehensive quality checks</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item" data-category="equipment">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.03 PM.jpeg" alt="Textile Machinery">
+      <div class="gallery-caption">
+        <h4>Textile Machinery</h4>
+        <p>Modern manufacturing equipment</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item" data-category="manufacturing">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.04 PM (1).jpeg" alt="Yarn Manufacturing">
+      <div class="gallery-caption">
+        <h4>Yarn Manufacturing</h4>
+        <p>Premium yarn production</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item" data-category="facility">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.04 PM (2).jpeg" alt="Production Facility">
+      <div class="gallery-caption">
+        <h4>Production Facility</h4>
+        <p>World-class manufacturing facility</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item" data-category="manufacturing">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.04 PM.jpeg" alt="Textile Processing Line">
+      <div class="gallery-caption">
+        <h4>Textile Processing Line</h4>
+        <p>Advanced processing technology</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item" data-category="manufacturing">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM (1).jpeg" alt="Manufacturing Process">
+      <div class="gallery-caption">
+        <h4>Manufacturing Process</h4>
+        <p>Efficient production methods</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item" data-category="quality">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM (2).jpeg" alt="Quality Control">
+      <div class="gallery-caption">
+        <h4>Quality Control</h4>
+        <p>Stringent quality standards</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item" data-category="equipment">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.05 PM.jpeg" alt="Textile Equipment">
+      <div class="gallery-caption">
+        <h4>Textile Equipment</h4>
+        <p>Precision machinery</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item" data-category="facility">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.06 PM.jpeg" alt="Production Floor View">
+      <div class="gallery-caption">
+        <h4>Production Floor View</h4>
+        <p>Organized production environment</p>
+      </div>
     </div>
   </div>
 </section>
@@ -515,8 +483,8 @@ session_start();
         <li><a href="../D.tex indai.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Our Products</a></li>
-        <li><a href="founder.html">Our Founder</a>
-      <a href="gallery.html">Gallery</a></li>
+        <li><a href="founder.html">Our Founder</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="enquiry.html">Contact Us</a></li>
       </ul>
     </div>
@@ -564,6 +532,29 @@ session_start();
   const navLinks = document.getElementById('navLinks');
   menuBtn?.addEventListener('click', () => {
     navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Gallery filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      // Add active class to clicked button
+      btn.classList.add('active');
+      
+      const filter = btn.getAttribute('data-filter');
+      
+      galleryItems.forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
   });
 </script>
 </body>

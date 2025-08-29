@@ -14,8 +14,8 @@ session_start();
 
 <style>
   :root{
-    --bg:#ffffff; --card:#FFD100; --muted:#475569; --text:#044C97;
-    --brand:#004C97; --brand2:#FFD100; --accent:#2CAB57;
+    --bg:#ffffff; --card:#FFD100; --muted:#1e40af; --text:#1e3a8a;
+    --brand:#1e40af; --brand2:#FFD100; --accent:#059669;
     --radius:20px; --shadow:0 20px 40px rgba(0,0,0,.1);
     --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
@@ -290,7 +290,9 @@ session_start();
       <a href="about.html">About Us</a>
       <a href="products.html">Our Products</a>
       <a href="founder.html">Our Founder</a>
+      <a href="gallery.html">Gallery</a>
       <a href="enquiry.html" class="active">Enquiry</a>
+      <a href="user_profile.php">My Profile</a>
       <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
         <!-- User is logged in - Show Profile Icon -->
         <div class="user-profile-dropdown">
@@ -375,8 +377,8 @@ session_start();
         <h3>Reach Us</h3>
         <div class="contact-info">
           <p><b>D TEX INDIA</b><br/>Ring Road, Surat, Gujarat, India<br/>PIN Code: <b>395003</b></p>
-          <p><b>Email:</b> info@dtexindia.com<br/><b>Phone:</b> +91-9999999999</p>
-          <p><b>WhatsApp:</b> <a href="https://wa.me/919999999999?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">Chat Now</a></p>
+          <p><b>Email:</b> info@dtexindia.com<br/><b>Phone:</b> +91-8780674899</p>
+          <p><b>WhatsApp:</b> <a href="https://wa.me/918780674899?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">Chat Now</a></p>
         </div>
         <div class="map-container">
           <iframe title="Map" src="https://www.google.com/maps?q=Surat%2C%20Gujarat&output=embed" loading="lazy"></iframe>
@@ -437,14 +439,14 @@ session_start();
       <div class="contact-icon">📞</div>
       <h4>Phone</h4>
       <p>Call us directly</p>
-      <a href="tel:+919999999999">+91-9999999999</a>
+      <a href="tel:+918780674899">+91-8780674899</a>
     </div>
     
     <div class="contact-method">
       <div class="contact-icon">💬</div>
       <h4>WhatsApp</h4>
       <p>Quick chat support</p>
-      <a href="https://wa.me/919999999999?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">Chat Now</a>
+      <a href="https://wa.me/918780674899?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">Chat Now</a>
     </div>
     
     <div class="contact-method">
@@ -463,24 +465,28 @@ session_start();
   
   <div class="grid">
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.01 PM.jpeg" alt="Minimum Order Quantity">
       <h3>What is your MOQ?</h3>
       <p class="muted">Typical MOQ starts from 500 kg per yarn type; can vary by product and shade.</p>
       <span class="chip">Orders</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (1).jpeg" alt="Delivery Timeline">
       <h3>Delivery timeline?</h3>
       <p class="muted">2–4 weeks depending on product, specs and order size.</p>
       <span class="chip">Delivery</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM (2).jpeg" alt="Payment Terms">
       <h3>Payment terms?</h3>
       <p class="muted">Standard: 50% advance, balance before dispatch. Flexible for long‑term partners.</p>
       <span class="chip">Payment</span>
     </div>
     
     <div class="card">
+      <img src="../assets/gallery/WhatsApp Image 2025-08-28 at 8.41.02 PM.jpeg" alt="Export Services">
       <h3>Do you export?</h3>
       <p class="muted">Yes, we ship worldwide with export documentation and packing.</p>
       <span class="chip">Export</span>
@@ -511,7 +517,8 @@ session_start();
         <li><a href="../D.tex indai.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Our Products</a></li>
-        <li><a href="founder.html">Our Founder</a></li>
+        <li><a href="founder.html">Our Founder</a>
+      <a href="gallery.html">Gallery</a></li>
         <li><a href="enquiry.html">Contact Us</a></li>
       </ul>
     </div>
@@ -532,15 +539,15 @@ session_start();
       <div class="contact-info">
         <p>📍 Ring Road, Surat, Gujarat, India</p>
         <p>📧 info@dtexindia.com</p>
-        <p>📞 +91-9999999999</p>
-        <p>💬 <a href="https://wa.me/919999999999?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">WhatsApp</a></p>
+        <p>📞 +91-8780674899</p>
+        <p>💬 <a href="https://wa.me/918780674899?text=Hello%20D%20TEX%20INDIA" target="_blank" rel="noopener">WhatsApp</a></p>
       </div>
     </div>
   </div>
   
   <div class="footer-bottom">
     <div class="footer-bottom-content">
-      <p>© <span id="year"></span> D TEX INDIA • All Rights Reserved</p>
+      <p>© <span id="year"></span> Developed By: UnstopableDeal Technology</p>
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
