@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSION['user_type'] !== 'user') {
-    header('Location: D.tex indai.html');
+    header('Location: ../D.tex indai.html');
     exit();
 }
 ?>
@@ -349,12 +349,12 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-wrap">
-    <a href="D.tex indai.html" class="brand">
-      <img src="logo.jpeg" alt="D TEX INDIA Logo" width="70" height="60"> 
+    <a href="../D.tex indai.html" class="brand">
+      <img src="../assets/images/logo.jpeg" alt="D TEX INDIA Logo" width="70" height="60"> 
       <strong><H1>D TEX INDIA</H1></strong>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="D.tex indai.html">Home</a>
+      <a href="../D.tex indai.html">Home</a>
       <a href="about.html">About Us</a>
       <a href="products.html">Our Products</a>
       <a href="founder.html">Our Founder</a>
@@ -366,7 +366,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
         </a>
         <div class="profile-menu">
           <a href="user_profile.php">My Profile</a>
-          <a href="logout.php">Logout</a>
+          <a href="../auth/logout.php">Logout</a>
         </div>
       </div>
     </ul>
@@ -383,8 +383,8 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
       <h1>Welcome back, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</h1>
       <p class="sub">Manage your account and view your activity with D TEX INDIA</p>
       <div class="cta">
-        <a href="D.tex indai.html" class="btn">Back to Website</a>
-        <a href="logout.php" class="btn alt">Logout</a>
+        <a href="../D.tex indai.html" class="btn">Back to Website</a>
+        <a href="../auth/logout.php" class="btn alt">Logout</a>
       </div>
     </div>
     <div class="profile-avatar" style="width: 200px; height: 200px; margin: auto;">
@@ -502,7 +502,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
   <div class="footer-content">
     <div class="footer-section">
       <div class="footer-brand">
-        <img src="logo.jpeg" alt="D TEX INDIA Logo" width="60" height="50">
+        <img src="../assets/images/logo.jpeg" alt="D TEX INDIA Logo" width="60" height="50">
         <h3>D TEX INDIA</h3>
       </div>
       <p>Leading manufacturer of premium yarns and textile solutions from Surat, India. Quality, innovation, and customer satisfaction since 1998.</p>
@@ -517,7 +517,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
     <div class="footer-section">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="D.tex indai.html">Home</a></li>
+        <li><a href="../D.tex indai.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Our Products</a></li>
         <li><a href="founder.html">Our Founder</a></li>

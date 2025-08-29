@@ -6,8 +6,8 @@ session_start();
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>About Us - D TEX INDIA</title>
-<meta name="description" content="Learn about D TEX INDIA - Premium yarns, fabrics & textile solutions from Surat, India." />
+<title>Our Products - D TEX INDIA</title>
+<meta name="description" content="Premium nylon twisted yarns, DTY, metallic yarns, fabrics & textile solutions from D TEX INDIA." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -174,20 +174,19 @@ session_start();
   .card p{margin:0 0 16px;line-height:1.6}
   .chip{display:inline-block;padding:8px 16px;border-radius:20px;background:var(--brand2);font-weight:700;color:#111;font-size:13px;box-shadow:0 2px 8px rgba(255,209,0,0.3)}
   
-  /* ABOUT SPECIFIC STYLES */
-  .about-content{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:40px 30px}
-  .about-text h3{font-size:clamp(24px,3vw,32px);color:var(--brand);margin-bottom:20px;font-weight:700}
-  .about-text p{font-size:clamp(16px,1.6vw,18px);line-height:1.8;color:var(--muted);margin-bottom:20px}
-  .about-image{position:relative}
-  .about-image img{border-radius:var(--radius);box-shadow:var(--shadow);transition:transform 0.3s ease}
-  .about-image:hover img{transform:scale(1.05)}
+  /* PRODUCT SPECIFIC STYLES */
+  .product .spec{font-size:14px;color:#0f172a;background:rgba(255,255,255,0.9);border:1px solid #e5e7eb;border-radius:12px;padding:12px;margin-top:12px;line-height:1.5}
   
-  .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:60px}
-  .value-card{background:var(--card);border-radius:var(--radius);padding:30px;text-align:center;box-shadow:var(--shadow);transition:all 0.3s ease}
-  .value-card:hover{transform:translateY(-5px);box-shadow:0 25px 50px rgba(0,0,0,0.15)}
-  .value-icon{font-size:48px;margin-bottom:20px}
-  .value-card h4{font-size:20px;color:var(--brand);margin-bottom:15px;font-weight:700}
-  .value-card p{color:var(--muted);line-height:1.6}
+  .product-categories{display:flex;justify-content:center;gap:20px;margin-bottom:40px;flex-wrap:wrap}
+  .category-btn{padding:12px 24px;border-radius:15px;background:var(--card);border:2px solid var(--brand2);color:var(--brand);font-weight:600;cursor:pointer;transition:all 0.3s ease}
+  .category-btn:hover,.category-btn.active{background:var(--brand2);color:#111;transform:translateY(-2px)}
+  
+  .product-detail{background:var(--card);border-radius:var(--radius);padding:30px;margin:20px 0;box-shadow:var(--shadow)}
+  .product-detail h3{color:var(--brand);margin-bottom:15px;font-size:24px}
+  .product-detail p{color:var(--muted);line-height:1.6;margin-bottom:15px}
+  .product-specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:20px}
+  .spec-item{background:rgba(255,255,255,0.8);padding:15px;border-radius:10px;border:1px solid #e5e7eb}
+  .spec-item strong{color:var(--brand);display:block;margin-bottom:5px}
   
   /* FOOTER */
   .footer{background:linear-gradient(135deg,#1e293b,#334155);color:#fff;margin-top:60px}
@@ -222,7 +221,6 @@ session_start();
   @media (max-width:1200px){
     .grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
     .hero-inner{padding:60px 25px}
-    .about-content{gap:40px;padding:30px 25px}
   }
   
   @media (max-width:900px){
@@ -233,8 +231,8 @@ session_start();
     .nav-wrap{padding:15px 20px}
     .grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
     .card{padding:20px}
-    .about-content{grid-template-columns:1fr;gap:40px;text-align:center}
-    .values-grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+    .category-btn{padding:10px 20px;font-size:14px}
+    .product-categories{gap:15px}
   }
   
   @media (max-width:600px){
@@ -246,9 +244,10 @@ session_start();
     .section h2{font-size:clamp(24px,6vw,32px)}
     .card{padding:18px}
     .btn{padding:12px 20px;font-size:14px}
-    .about-content{padding:20px 15px;gap:30px}
-    .values-grid{grid-template-columns:1fr;gap:20px}
-    .value-card{padding:25px}
+    .category-btn{padding:8px 16px;font-size:13px}
+    .product-categories{flex-direction:column;align-items:center}
+    .product-detail{padding:20px}
+    .product-specs{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -257,14 +256,14 @@ session_start();
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-wrap">
-    <a href="D.tex indai.html" class="brand">
-      <img src="logo.jpeg" alt="D TEX INDIA Logo" width="70" height="60"> 
+    <a href="../D.tex indai.html" class="brand">
+      <img src="../assets/images/logo.jpeg" alt="D TEX INDIA Logo" width="70" height="60"> 
       <strong><H1>D TEX INDIA</H1></strong>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="D.tex indai.html">Home</a>
-      <a href="about.html" class="active">About Us</a>
-      <a href="products.html">Our Products</a>
+      <a href="../D.tex indai.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html" class="active">Our Products</a>
       <a href="founder.html">Our Founder</a>
       <a href="D.tex indai.html#enquiry">Enquiry</a>
       <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
@@ -276,7 +275,7 @@ session_start();
           </a>
           <div class="profile-menu">
             <a href="user_profile.php">My Profile</a>
-            <a href="logout.php">Logout</a>
+            <a href="../auth/logout.php">Logout</a>
           </div>
         </div>
       <?php else: ?>
@@ -284,9 +283,9 @@ session_start();
         <div class="login-dropdown">
           <a href="#" class="login-toggle">Login ▼</a>
           <div class="login-menu">
-            <a href="admin_login.php">Admin Login</a>
-            <a href="user_login.php">User Login</a>
-            <a href="user_signup.php">User Signup</a>
+            <a href="../auth/admin_login.php">Admin Login</a>
+            <a href="../auth/user_login.php">User Login</a>
+            <a href="../auth/user_signup.php">User Signup</a>
           </div>
         </div>
       <?php endif; ?>
@@ -299,145 +298,184 @@ session_start();
 <header class="hero">
   <div class="hero-inner">
     <div>
-      <h1 class="title">About D TEX INDIA</h1>
-      <p class="sub">Discover our journey, values, and commitment to excellence in the textile industry</p>
+      <h1 class="title">Our Products</h1>
+      <p class="sub">Premium yarns, fabrics, and textile solutions for diverse applications</p>
       <div class="cta">
-        <a href="products.html" class="btn">Explore Products</a>
-        <a href="D.tex indai.html#enquiry" class="btn alt">Get in Touch</a>
+        <a href="D.tex indai.html#enquiry" class="btn">Get Quote</a>
+        <a href="about.html" class="btn alt">Learn More</a>
       </div>
     </div>
-    <img class="hero-media" src="daga.webp" alt="D TEX INDIA Factory">
+    <img class="hero-media" src="daga.webp" alt="Textile Products">
   </div>
 </header>
 
-<!-- ABOUT CONTENT -->
+<!-- PRODUCT CATEGORIES -->
 <section class="section">
-  <div class="about-content">
-    <div class="about-text">
-      <h3>Our Story</h3>
-      <p>
-        <strong>D TEX INDIA</strong>, based in Surat – India's textile hub, manufactures and supplies premium yarns and textile solutions. 
-        We combine <strong>innovation, quality and reliability</strong> to serve domestic and global markets with quick turnaround.
-      </p>
-      <p>
-        Our vision is to weave <strong>excellence, sustainability and customer trust</strong> in every strand—across nylon twisted yarn, DTY,
-        metallic yarns, fabrics and weaving accessories.
-      </p>
-      <p>
-        Founded with a passion for quality and innovation, we have grown from a small family business to a trusted name in the textile industry. 
-        Our commitment to excellence has made us a preferred partner for leading brands worldwide.
-      </p>
-    </div>
-    <div class="about-image">
-      <img src="logo.jpeg" alt="D TEX INDIA Factory" style="width: 100%; height: 400px; object-fit: cover;">
-    </div>
-  </div>
-</section>
-
-<!-- OUR VALUES -->
-<section class="section" style="background: linear-gradient(135deg,#f8fafc,#f1f5f9);">
-  <h2>Our Core Values</h2>
-  <p class="muted">The principles that guide everything we do</p>
+  <h2>Product Categories</h2>
+  <p class="muted">Explore our comprehensive range of textile products</p>
   
-  <div class="values-grid">
-    <div class="value-card">
-      <div class="value-icon">🏭</div>
-      <h4>Quality Excellence</h4>
-      <p>We maintain the highest standards in every product we manufacture, ensuring consistent quality that meets international standards.</p>
+  <div class="product-categories">
+    <button class="category-btn active" onclick="filterProducts('all')">All Products</button>
+    <button class="category-btn" onclick="filterProducts('yarn')">Yarns</button>
+    <button class="category-btn" onclick="filterProducts('fabric')">Fabrics</button>
+    <button class="category-btn" onclick="filterProducts('weaving')">Weaving</button>
+    <button class="category-btn" onclick="filterProducts('garments')">Garments</button>
+  </div>
+
+  <div class="grid">
+    <article class="card product" data-category="yarn">
+      <img src="3.jpg" alt="Nylon Twisted Yarn">
+      <h3>Nylon Twisted Yarn</h3>
+      <p class="muted">High strength & uniformity for broad applications.</p>
+      <div class="spec">Denier: 40D–300D • Twist: Custom • Colors: Dyed/Raw White</div>
+      <span class="chip">Yarn</span>
+    </article>
+
+    <article class="card product" data-category="yarn">
+      <img src="2.jpg" alt="DTY">
+      <h3>Draw Texturised Yarn (DTY)</h3>
+      <p class="muted">High-bulk, high-stretch. Ideal for apparel/home textiles.</p>
+      <div class="spec">Denier: 75D–300D • Intermingled/Non-IM • Semi/Full Dull</div>
+      <span class="chip">Yarn</span>
+    </article>
+
+    <article class="card product" data-category="yarn">
+      <img src="1.jpg" alt="Jari / Metallic">
+      <h3>Jari / Metallic Yarn</h3>
+      <p class="muted">Shimmering effects for sarees, trims & décor.</p>
+      <div class="spec">Types: M/2, M/12 etc. • Shades: Gold/Silver/Custom</div>
+      <span class="chip">Yarn</span>
+    </article>
+
+    <article class="card product" data-category="fabric">
+      <img src="4.jpg" alt="Fabrics">
+      <h3>Fabrics</h3>
+      <p class="muted">Knits, woven, upholstery and technical textiles.</p>
+      <div class="spec">GSM: 80–350 • Width: 44–72" • Finishes: Custom</div>
+      <span class="chip">Fabric</span>
+    </article>
+
+    <article class="card product" data-category="weaving">
+      <img src="5.jpg" alt="Sizing Beam">
+      <h3>Sizing Beam</h3>
+      <p class="muted">Precision beams for consistent warping & weaving.</p>
+      <div class="spec">Custom sizes • High uniformity • QC checked</div>
+      <span class="chip">Weaving</span>
+    </article>
+
+    <article class="card product" data-category="garments">
+      <img src="6.jpg" alt="Garments">
+      <h3>Garments</h3>
+      <p class="muted">Private label development & sourcing support.</p>
+      <div class="spec">MOQs flexible • Design support • Export ready</div>
+      <span class="chip">Garments</span>
+    </article>
+  </div>
+</section>
+
+<!-- PRODUCT DETAILS -->
+<section class="section" style="background: linear-gradient(135deg,#f8fafc,#f1f5f9);">
+  <h2>Product Specifications</h2>
+  <p class="muted">Detailed specifications and technical information</p>
+  
+  <div class="product-detail">
+    <h3>Nylon Twisted Yarn</h3>
+    <p>Our premium nylon twisted yarns are manufactured with precision engineering to ensure consistent quality and performance across all applications.</p>
+    <div class="product-specs">
+      <div class="spec-item">
+        <strong>Denier Range</strong>
+        40D - 300D
+      </div>
+      <div class="spec-item">
+        <strong>Twist Levels</strong>
+        Custom as per requirement
+      </div>
+      <div class="spec-item">
+        <strong>Color Options</strong>
+        Dyed/Raw White
+      </div>
+      <div class="spec-item">
+        <strong>Applications</strong>
+        Apparel, Home Textiles
+      </div>
     </div>
-    
-    <div class="value-card">
-      <div class="value-icon">🤝</div>
-      <h4>Customer Trust</h4>
-      <p>Building long-term relationships through transparency, reliability, and exceptional service to every client.</p>
+  </div>
+  
+  <div class="product-detail">
+    <h3>DTY (Draw Texturised Yarn)</h3>
+    <p>High-bulk, high-stretch DTY yarns perfect for modern apparel and home textile applications with excellent comfort and durability.</p>
+    <div class="product-specs">
+      <div class="spec-item">
+        <strong>Denier Range</strong>
+        75D - 300D
+      </div>
+      <div class="spec-item">
+        <strong>Intermingling</strong>
+        Intermingled/Non-IM
+      </div>
+      <div class="spec-item">
+        <strong>Luster</strong>
+        Semi/Full Dull
+      </div>
+      <div class="spec-item">
+        <strong>Applications</strong>
+        Sportswear, Casual Wear
+      </div>
     </div>
-    
-    <div class="value-card">
-      <div class="value-icon">🌱</div>
-      <h4>Sustainability</h4>
-      <p>Committed to eco-friendly practices and sustainable manufacturing processes for a better future.</p>
-    </div>
-    
-    <div class="value-card">
-      <div class="value-icon">💡</div>
-      <h4>Innovation</h4>
-      <p>Continuously improving our processes and products through research, development, and cutting-edge technology.</p>
-    </div>
-    
-    <div class="value-card">
-      <div class="value-icon">⚡</div>
-      <h4>Quick Turnaround</h4>
-      <p>Efficient production and delivery systems ensuring timely fulfillment of all customer requirements.</p>
-    </div>
-    
-    <div class="value-card">
-      <div class="value-icon">🌍</div>
-      <h4>Global Reach</h4>
-      <p>Serving customers worldwide with reliable supply chains and international quality standards.</p>
+  </div>
+  
+  <div class="product-detail">
+    <h3>Jari / Metallic Yarn</h3>
+    <p>Traditional and modern metallic yarns for creating stunning visual effects in traditional wear and decorative applications.</p>
+    <div class="product-specs">
+      <div class="spec-item">
+        <strong>Types</strong>
+        M/2, M/12, Custom
+      </div>
+      <div class="spec-item">
+        <strong>Shades</strong>
+        Gold, Silver, Custom
+      </div>
+      <div class="spec-item">
+        <strong>Applications</strong>
+        Sarees, Trims, Decor
+      </div>
+      <div class="spec-item">
+        <strong>Packaging</strong>
+        Custom as per requirement
+      </div>
     </div>
   </div>
 </section>
 
-<!-- QUALITY & CERTIFICATIONS -->
+<!-- QUALITY ASSURANCE -->
 <section class="section">
-  <h2>Quality & Certifications</h2>
-  <p class="muted">Tested and certified to meet international standards</p>
+  <h2>Quality Assurance</h2>
+  <p class="muted">Every product undergoes rigorous quality checks</p>
   
   <div class="grid">
     <div class="card">
-      <h3>ISO 9001:2015</h3>
-      <p class="muted">Quality Management System certification ensuring consistent quality across all processes.</p>
-      <span class="chip">Quality</span>
-    </div>
-    
-    <div class="card">
-      <h3>OEKO-TEX® Standard 100</h3>
-      <p class="muted">Textile safety certification guaranteeing products are free from harmful substances.</p>
-      <span class="chip">Safety</span>
-    </div>
-    
-    <div class="card">
-      <h3>Internal QC</h3>
-      <p class="muted">Denier/shade checks, lab testing, and process controls for quality assurance.</p>
+      <h3>Raw Material Testing</h3>
+      <p class="muted">Comprehensive testing of all raw materials before processing begins.</p>
       <span class="chip">Testing</span>
     </div>
     
     <div class="card">
-      <h3>GOTS Certification</h3>
-      <p class="muted">Global Organic Textile Standard for organic fiber products where applicable.</p>
-      <span class="chip">Organic</span>
-    </div>
-  </div>
-</section>
-
-<!-- INDUSTRIES WE SERVE -->
-<section class="section" style="background: linear-gradient(135deg,#f8fafc,#f1f5f9);">
-  <h2>Industries We Serve</h2>
-  <p class="muted">Providing solutions across diverse textile applications</p>
-  
-  <div class="grid">
-    <div class="card">
-      <h3>Apparel</h3>
-      <p class="muted">Fashion, sportswear, knitwear, and everyday clothing solutions.</p>
-      <span class="chip">Fashion</span>
+      <h3>Process Control</h3>
+      <p class="muted">Continuous monitoring and control of all manufacturing processes.</p>
+      <span class="chip">Control</span>
     </div>
     
     <div class="card">
-      <h3>Home Textiles</h3>
-      <p class="muted">Curtains, upholstery, bed & bath, and home decoration fabrics.</p>
-      <span class="chip">Home</span>
+      <h3>Final Inspection</h3>
+      <p class="muted">Thorough final inspection before packaging and dispatch.</p>
+      <span class="chip">Inspection</span>
     </div>
     
     <div class="card">
-      <h3>Automotive</h3>
-      <p class="muted">Seat fabrics, headliners, trims, and automotive interior solutions.</p>
-      <span class="chip">Auto</span>
-    </div>
-    
-    <div class="card">
-      <h3>Decor & Accessories</h3>
-      <p class="muted">Sarees, trims, metallic accents, and decorative textile products.</p>
-      <span class="chip">Decor</span>
+      <h3>Lab Testing</h3>
+      <p class="muted">Advanced laboratory testing for strength, color, and durability.</p>
+      <span class="chip">Lab</span>
     </div>
   </div>
 </section>
@@ -447,7 +485,7 @@ session_start();
   <div class="footer-content">
     <div class="footer-section">
       <div class="footer-brand">
-        <img src="logo.jpeg" alt="D TEX INDIA Logo" width="60" height="50">
+        <img src="../assets/images/logo.jpeg" alt="D TEX INDIA Logo" width="60" height="50">
         <h3>D TEX INDIA</h3>
       </div>
       <p>Leading manufacturer of premium yarns and textile solutions from Surat, India. Quality, innovation, and customer satisfaction since 1998.</p>
@@ -462,7 +500,7 @@ session_start();
     <div class="footer-section">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="D.tex indai.html">Home</a></li>
+        <li><a href="../D.tex indai.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Our Products</a></li>
         <li><a href="founder.html">Our Founder</a></li>
@@ -514,6 +552,25 @@ session_start();
   menuBtn?.addEventListener('click', () => {
     navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
   });
+
+  // Product filtering
+  function filterProducts(category) {
+    const products = document.querySelectorAll('.product');
+    const buttons = document.querySelectorAll('.category-btn');
+    
+    // Update active button
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // Filter products
+    products.forEach(product => {
+      if (category === 'all' || product.dataset.category === category) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  }
 </script>
 </body>
-</html>
+</html> 

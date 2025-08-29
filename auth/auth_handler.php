@@ -52,7 +52,7 @@ class AuthHandler {
                     'success' => true, 
                     'message' => 'Login successful!',
                     'user_type' => $user['user_type'],
-                    'redirect' => $user['user_type'] === 'admin' ? 'admin_dashboard.php' : 'user_profile.php'
+                    'redirect' => $user['user_type'] === 'admin' ? '../pages/admin_dashboard.php' : '../pages/user_profile.php'
                 ];
             } else {
                 return ['success' => false, 'message' => 'Invalid email or password'];
@@ -74,7 +74,7 @@ class AuthHandler {
     
     public function requireAuth() {
         if (!$this->isLoggedIn()) {
-            header('Location: D.tex indai.html');
+            header('Location: ../D.tex indai.html');
             exit();
         }
     }
@@ -82,7 +82,7 @@ class AuthHandler {
     public function requireAdmin() {
         $this->requireAuth();
         if ($_SESSION['user_type'] !== 'admin') {
-            header('Location: user_profile.php');
+            header('Location: ../pages/user_profile.php');
             exit();
         }
     }

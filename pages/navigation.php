@@ -140,7 +140,7 @@
         </div>
         
         <div class="nav-grid">
-            <a href="D.tex indai.html" class="nav-card">
+            <a href="../D.tex indai.html" class="nav-card">
                 <h3>🏠 Main Website</h3>
                 <p>D TEX INDIA's main website with products, about us, and contact information.</p>
                 <span class="btn">Visit Website</span>

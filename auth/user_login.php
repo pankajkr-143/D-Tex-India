@@ -4,7 +4,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     if ($_SESSION['user_type'] === 'admin') {
         header('Location: admin_dashboard.php');
     } else {
-        header('Location: user_dashboard.php');
+        header('Location: ../pages/user_profile.php');
     }
     exit();
 }
@@ -14,7 +14,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - D TEX INDIA</title>
+    <title>User Login - D TEX INDIA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         }
         
         .header {
-            background: linear-gradient(135deg, #dc2626, #991b1b);
+            background: var(--brand);
             color: white;
             padding: 30px 20px;
             text-align: center;
@@ -72,17 +72,6 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         .header p {
             opacity: 0.9;
             font-size: 14px;
-        }
-        
-        .admin-badge {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 10px;
         }
         
         .form-container {
@@ -132,11 +121,26 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             background: #003d7a;
         }
         
-        .back-link {
+        .form-toggle {
             text-align: center;
             margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid #e5e7eb;
+        }
+        
+        .form-toggle a {
+            color: var(--brand);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .form-toggle a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
         }
         
         .back-link a {
@@ -168,20 +172,6 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             border: 1px solid #fecaca;
         }
         
-        .credentials {
-            background: #f8fafc;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            font-size: 12px;
-            color: var(--muted);
-        }
-        
-        .credentials strong {
-            color: var(--text);
-        }
-        
         @media (max-width: 480px) {
             .container {
                 margin: 10px;
@@ -201,38 +191,34 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     <div class="container">
         <div class="header">
             <h1>D TEX INDIA</h1>
-            <p>Administrator Access</p>
-            <div class="admin-badge">ADMIN PANEL</div>
+            <p>Welcome back! Please login to your account.</p>
         </div>
         
         <div class="form-container">
             <!-- Alert Messages -->
             <div id="alert" class="alert" style="display: none;"></div>
             
-            <!-- Demo Credentials -->
-            <div class="credentials">
-                <strong>Demo Credentials:</strong><br>
-                Email: admin@dtexindia.com<br>
-                Password: admin123
-            </div>
-            
-            <!-- Admin Login Form -->
-            <form id="adminLoginForm">
+            <!-- User Login Form -->
+            <form id="userLoginForm">
                 <div class="form-group">
-                    <label for="adminEmail">Admin Email</label>
-                    <input type="email" id="adminEmail" name="email" required>
+                    <label for="userEmail">Email Address</label>
+                    <input type="email" id="userEmail" name="email" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="adminPassword">Password</label>
-                    <input type="password" id="adminPassword" name="password" required>
+                    <label for="userPassword">Password</label>
+                    <input type="password" id="userPassword" name="password" required>
                 </div>
                 
-                <button type="submit" class="btn">Admin Login</button>
+                <button type="submit" class="btn">Login</button>
             </form>
             
+            <div class="form-toggle">
+                Don't have an account? <a href="user_signup.php">Sign up</a>
+            </div>
+            
             <div class="back-link">
-                <a href="D.tex indai.html">← Back to Website</a>
+                <a href="../D.tex indai.html">← Back to Website</a>
             </div>
         </div>
     </div>
@@ -249,14 +235,14 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             }, 5000);
         }
         
-        // Admin Login Form Handler
-        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+        // User Login Form Handler
+        document.getElementById('userLoginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const formData = new FormData();
             formData.append('action', 'login');
-            formData.append('email', document.getElementById('adminEmail').value);
-            formData.append('password', document.getElementById('adminPassword').value);
+            formData.append('email', document.getElementById('userEmail').value);
+            formData.append('password', document.getElementById('userPassword').value);
             
             fetch('auth/auth_handler.php', {
                 method: 'POST',
@@ -265,13 +251,13 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    if (data.user_type === 'admin') {
+                    if (data.user_type === 'user') {
                         showAlert(data.message, 'success');
                         setTimeout(() => {
-                            window.location.href = 'admin_dashboard.php';
+                            window.location.href = '../pages/user_profile.php';
                         }, 1000);
                     } else {
-                        showAlert('Access denied. Admin credentials required.', 'error');
+                        showAlert('Please use admin login for administrator access.', 'error');
                     }
                 } else {
                     showAlert(data.message, 'error');

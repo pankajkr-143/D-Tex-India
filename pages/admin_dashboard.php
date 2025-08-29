@@ -344,8 +344,8 @@ $auth->requireAdmin();
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="D.tex indai.html" class="brand">
-                <img src="logo.jpeg" alt="D TEX INDIA Logo">
+            <a href="../D.tex indai.html" class="brand">
+                <img src="../assets/images/logo.jpeg" alt="D TEX INDIA Logo">
                 <h1>D TEX INDIA</h1>
             </a>
             <div class="nav-actions">
@@ -353,7 +353,7 @@ $auth->requireAdmin();
                 <div class="user-info">
                     <?php echo htmlspecialchars($_SESSION['user_name']); ?>
                 </div>
-                <a href="D.tex indai.html" class="btn btn-primary">View Website</a>
+                <a href="../D.tex indai.html" class="btn btn-primary">View Website</a>
                 <button onclick="logout()" class="btn btn-secondary">Logout</button>
             </div>
         </div>

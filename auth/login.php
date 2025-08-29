@@ -1,11 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    if ($_SESSION['user_type'] === 'admin') {
-        header('Location: admin_dashboard.php');
-    } else {
-        header('Location: user_profile.php');
-    }
+    header('Location: ' . ($_SESSION['user_type'] === 'admin' ? 'admin_dashboard.php' : 'user_dashboard.php'));
     exit();
 }
 ?>
@@ -14,7 +10,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Signup - D TEX INDIA</title>
+    <title>Login - D TEX INDIA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -107,8 +103,8 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         .btn {
             width: 100%;
             padding: 14px;
-            background: var(--brand2);
-            color: #111;
+            background: var(--brand);
+            color: white;
             border: none;
             border-radius: 10px;
             font-size: 16px;
@@ -118,6 +114,15 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         }
         
         .btn:hover {
+            background: #003d7a;
+        }
+        
+        .btn.secondary {
+            background: var(--brand2);
+            color: #111;
+        }
+        
+        .btn.secondary:hover {
             background: #e6c200;
         }
         
@@ -135,21 +140,6 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         }
         
         .form-toggle a:hover {
-            text-decoration: underline;
-        }
-        
-        .back-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .back-link a {
-            color: var(--brand);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .back-link a:hover {
             text-decoration: underline;
         }
         
@@ -172,6 +162,30 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             border: 1px solid #fecaca;
         }
         
+        .form {
+            display: none;
+        }
+        
+        .form.active {
+            display: block;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: var(--brand);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
         @media (max-width: 480px) {
             .container {
                 margin: 10px;
@@ -188,18 +202,39 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     </style>
 </head>
 <body>
+    <a href="../D.tex indai.html" class="back-link">← Back to Home</a>
+    
     <div class="container">
         <div class="header">
             <h1>D TEX INDIA</h1>
-            <p>Create your account</p>
+            <p>Welcome back! Please login to your account.</p>
         </div>
         
         <div class="form-container">
             <!-- Alert Messages -->
             <div id="alert" class="alert" style="display: none;"></div>
             
-            <!-- User Signup Form -->
-            <form id="userSignupForm">
+            <!-- Login Form -->
+            <form id="loginForm" class="form active">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                
+                <button type="submit" class="btn">Login</button>
+                
+                <div class="form-toggle">
+                    Don't have an account? <a href="#" onclick="toggleForm('signup')">Sign up</a>
+                </div>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signupForm" class="form">
                 <div class="form-group">
                     <label for="signupName">Full Name</label>
                     <input type="text" id="signupName" name="full_name" required>
@@ -220,16 +255,12 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                     <input type="password" id="signupConfirmPassword" name="confirm_password" required>
                 </div>
                 
-                <button type="submit" class="btn">Create Account</button>
+                <button type="submit" class="btn secondary">Create Account</button>
+                
+                <div class="form-toggle">
+                    Already have an account? <a href="#" onclick="toggleForm('login')">Login</a>
+                </div>
             </form>
-            
-            <div class="form-toggle">
-                Already have an account? <a href="user_login.php">Login</a>
-            </div>
-            
-            <div class="back-link">
-                <a href="D.tex indai.html">← Back to Website</a>
-            </div>
         </div>
     </div>
 
@@ -245,8 +276,43 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             }, 5000);
         }
         
-        // User Signup Form Handler
-        document.getElementById('userSignupForm').addEventListener('submit', function(e) {
+        function toggleForm(formType) {
+            document.getElementById('loginForm').classList.remove('active');
+            document.getElementById('signupForm').classList.remove('active');
+            document.getElementById(formType + 'Form').classList.add('active');
+        }
+        
+        // Login Form Handler
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('action', 'login');
+            formData.append('email', document.getElementById('loginEmail').value);
+            formData.append('password', document.getElementById('loginPassword').value);
+            
+            fetch('auth/auth_handler.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showAlert(data.message, 'success');
+                    setTimeout(() => {
+                        window.location.href = data.redirect;
+                    }, 1000);
+                } else {
+                    showAlert(data.message, 'error');
+                }
+            })
+            .catch(error => {
+                showAlert('An error occurred. Please try again.', 'error');
+            });
+        });
+        
+        // Signup Form Handler
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const password = document.getElementById('signupPassword').value;
@@ -272,7 +338,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                 if (data.success) {
                     showAlert(data.message, 'success');
                     setTimeout(() => {
-                        window.location.href = 'user_profile.php';
+                        toggleForm('login');
                     }, 2000);
                 } else {
                     showAlert(data.message, 'error');

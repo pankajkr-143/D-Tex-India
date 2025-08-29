@@ -4,7 +4,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     if ($_SESSION['user_type'] === 'admin') {
         header('Location: admin_dashboard.php');
     } else {
-        header('Location: user_profile.php');
+        header('Location: ../pages/user_profile.php');
     }
     exit();
 }
@@ -14,7 +14,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login - D TEX INDIA</title>
+    <title>User Signup - D TEX INDIA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -107,8 +107,8 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         .btn {
             width: 100%;
             padding: 14px;
-            background: var(--brand);
-            color: white;
+            background: var(--brand2);
+            color: #111;
             border: none;
             border-radius: 10px;
             font-size: 16px;
@@ -118,7 +118,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         }
         
         .btn:hover {
-            background: #003d7a;
+            background: #e6c200;
         }
         
         .form-toggle {
@@ -191,34 +191,44 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     <div class="container">
         <div class="header">
             <h1>D TEX INDIA</h1>
-            <p>Welcome back! Please login to your account.</p>
+            <p>Create your account</p>
         </div>
         
         <div class="form-container">
             <!-- Alert Messages -->
             <div id="alert" class="alert" style="display: none;"></div>
             
-            <!-- User Login Form -->
-            <form id="userLoginForm">
+            <!-- User Signup Form -->
+            <form id="userSignupForm">
                 <div class="form-group">
-                    <label for="userEmail">Email Address</label>
-                    <input type="email" id="userEmail" name="email" required>
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" name="full_name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="userPassword">Password</label>
-                    <input type="password" id="userPassword" name="password" required>
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" name="email" required>
                 </div>
                 
-                <button type="submit" class="btn">Login</button>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" required minlength="6">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" name="confirm_password" required>
+                </div>
+                
+                <button type="submit" class="btn">Create Account</button>
             </form>
             
             <div class="form-toggle">
-                Don't have an account? <a href="user_signup.php">Sign up</a>
+                Already have an account? <a href="user_login.php">Login</a>
             </div>
             
             <div class="back-link">
-                <a href="D.tex indai.html">← Back to Website</a>
+                <a href="../D.tex indai.html">← Back to Website</a>
             </div>
         </div>
     </div>
@@ -235,14 +245,23 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             }, 5000);
         }
         
-        // User Login Form Handler
-        document.getElementById('userLoginForm').addEventListener('submit', function(e) {
+        // User Signup Form Handler
+        document.getElementById('userSignupForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                showAlert('Passwords do not match', 'error');
+                return;
+            }
+            
             const formData = new FormData();
-            formData.append('action', 'login');
-            formData.append('email', document.getElementById('userEmail').value);
-            formData.append('password', document.getElementById('userPassword').value);
+            formData.append('action', 'signup');
+            formData.append('full_name', document.getElementById('signupName').value);
+            formData.append('email', document.getElementById('signupEmail').value);
+            formData.append('password', password);
             
             fetch('auth/auth_handler.php', {
                 method: 'POST',
@@ -251,14 +270,10 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    if (data.user_type === 'user') {
-                        showAlert(data.message, 'success');
-                        setTimeout(() => {
-                            window.location.href = 'user_profile.php';
-                        }, 1000);
-                    } else {
-                        showAlert('Please use admin login for administrator access.', 'error');
-                    }
+                    showAlert(data.message, 'success');
+                    setTimeout(() => {
+                        window.location.href = '../pages/user_profile.php';
+                    }, 2000);
                 } else {
                     showAlert(data.message, 'error');
                 }

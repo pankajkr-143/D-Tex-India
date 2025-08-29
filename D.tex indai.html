@@ -277,26 +277,26 @@ session_start();
   <div class="nav-wrap">
     <a href="#home" class="brand">
       <!-- 🔁 Replace with your hosted logo file -->
-      <img src="logo.jpeg" alt="D TEX INDIA Logo" width="70" height="60"> 
+      <img src="assets/images/logo.jpeg" alt="D TEX INDIA Logo" width="70" height="60"> 
       <strong><H1>D TEX INDIA</H1></strong>
 
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#home">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="products.html">Our Products</a>
-      <a href="founder.html">Our Founder</a>
-      <a href="enquiry.html">Enquiry</a>
+      <a href="pages/about.html">About Us</a>
+      <a href="pages/products.html">Our Products</a>
+      <a href="pages/founder.html">Our Founder</a>
+      <a href="pages/enquiry.html">Enquiry</a>
       <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
         <!-- User is logged in - Show Profile Icon -->
         <div class="user-profile-dropdown">
-          <a href="user_profile.php" class="profile-toggle">
+          <a href="pages/user_profile.php" class="profile-toggle">
             <span class="profile-icon">👤</span>
             <?php echo htmlspecialchars($_SESSION['user_name']); ?>
           </a>
           <div class="profile-menu">
-            <a href="user_profile.php">My Profile</a>
-            <a href="logout.php">Logout</a>
+            <a href="pages/user_profile.php">My Profile</a>
+            <a href="auth/logout.php">Logout</a>
           </div>
         </div>
       <?php else: ?>
@@ -304,9 +304,9 @@ session_start();
         <div class="login-dropdown">
           <a href="#" class="login-toggle">Login ▼</a>
           <div class="login-menu">
-            <a href="admin_login.php">Admin Login</a>
-            <a href="user_login.php">User Login</a>
-            <a href="user_signup.php">User Signup</a>
+            <a href="auth/admin_login.php">Admin Login</a>
+            <a href="auth/user_login.php">User Login</a>
+            <a href="auth/user_signup.php">User Signup</a>
           </div>
         </div>
       <?php endif; ?>
@@ -331,18 +331,18 @@ session_start();
       </div>
     </div>
     <!-- 🔁 Replace hero image with your banner -->
-    <img class="hero-media" src="daga.webp" alt="Textile Machinery / Banner">
+    <img class="hero-media" src="assets/images/daga.webp" alt="Textile Machinery / Banner">
   </div>
 </header>
 
 <!-- FEATURED PRODUCTS -->
 <section class="section" id="products">
   <h2>Featured Products</h2>
-  <p class="muted">Discover our premium textile solutions. <a href="products.html" style="color: var(--brand); font-weight: 600;">View all products →</a></p>
+  <p class="muted">Discover our premium textile solutions. <a href="pages/products.html" style="color: var(--brand); font-weight: 600;">View all products →</a></p>
 
   <div class="grid">
     <article class="card product">
-      <img src="3.jpg" alt="Nylon Twisted Yarn">
+      <img src="assets/images/3.jpg" alt="Nylon Twisted Yarn">
       <h3>Nylon Twisted Yarn</h3>
       <p class="muted">High strength & uniformity for broad applications.</p>
       <div class="spec">Denier: 40D–300D • Twist: Custom • Colors: Dyed/Raw White</div>
@@ -350,7 +350,7 @@ session_start();
     </article>
 
     <article class="card product">
-      <img src="2.jpg" alt="DTY">
+      <img src="assets/images/2.jpg" alt="DTY">
       <h3>Draw Texturised Yarn (DTY)</h3>
       <p class="muted">High-bulk, high-stretch. Ideal for apparel/home textiles.</p>
       <div class="spec">Denier: 75D–300D • Intermingled/Non-IM • Semi/Full Dull</div>
@@ -358,7 +358,7 @@ session_start();
     </article>
 
     <article class="card product">
-      <img src="1.jpg" alt="Jari / Metallic">
+      <img src="assets/images/1.jpg" alt="Jari / Metallic">
       <h3>Jari / Metallic Yarn</h3>
       <p class="muted">Shimmering effects for sarees, trims & décor.</p>
       <div class="spec">Types: M/2, M/12 etc. • Shades: Gold/Silver/Custom</div>
@@ -367,7 +367,7 @@ session_start();
   </div>
   
   <div style="text-align: center; margin-top: 40px;">
-    <a href="products.html" class="btn">View All Products</a>
+    <a href="pages/products.html" class="btn">View All Products</a>
   </div>
 </section>
 
@@ -380,19 +380,19 @@ session_start();
     <div class="card">
       <h3>Our Story</h3>
       <p class="muted">Based in Surat – India's textile hub, we combine innovation, quality and reliability to serve domestic and global markets.</p>
-      <a href="about.html" class="btn" style="margin-top: 10px;">Learn More</a>
+      <a href="pages/about.html" class="btn" style="margin-top: 10px;">Learn More</a>
     </div>
     
     <div class="card">
       <h3>Our Founder</h3>
       <p class="muted">Meet the visionary leader behind D TEX INDIA's success story and commitment to excellence.</p>
-      <a href="founder.html" class="btn" style="margin-top: 10px;">Meet Founder</a>
+      <a href="pages/founder.html" class="btn" style="margin-top: 10px;">Meet Founder</a>
     </div>
     
     <div class="card">
       <h3>Quality Assurance</h3>
       <p class="muted">ISO 9001:2015 certified with OEKO-TEX® Standard 100 for textile safety and quality.</p>
-      <a href="about.html" class="btn" style="margin-top: 10px;">View Certifications</a>
+      <a href="pages/about.html" class="btn" style="margin-top: 10px;">View Certifications</a>
     </div>
   </div>
 </section>
@@ -419,7 +419,7 @@ session_start();
     <li>✔️ Internal QC: Denier/shade checks, lab testing, process controls</li>
   </ul>
   <div style="text-align: center; margin-top: 30px;">
-    <a href="about.html" class="btn">View All Certifications</a>
+    <a href="pages/about.html" class="btn">View All Certifications</a>
   </div>
 </section>
 
@@ -533,8 +533,8 @@ session_start();
         <h3>Quick Contact</h3>
         <p class="muted">Ready to get started? Send us your enquiry and we'll get back to you within 24 hours.</p>
         <div style="text-align: center; margin-top: 30px;">
-          <a href="enquiry.html" class="btn">Send Enquiry</a>
-          <a href="enquiry.html" class="btn alt" style="margin-left: 15px;">Get Quote</a>
+                  <a href="pages/enquiry.html" class="btn">Send Enquiry</a>
+        <a href="pages/enquiry.html" class="btn alt" style="margin-left: 15px;">Get Quote</a>
         </div>
         <div class="form-note" style="margin-top: 20px;">* For detailed enquiries and quotes, please visit our dedicated enquiry page</div>
       </div>
@@ -549,7 +549,7 @@ session_start();
   <div class="footer-content">
     <div class="footer-section">
       <div class="footer-brand">
-        <img src="logo.jpeg" alt="D TEX INDIA Logo" width="60" height="50">
+        <img src="assets/images/logo.jpeg" alt="D TEX INDIA Logo" width="60" height="50">
         <h3>D TEX INDIA</h3>
       </div>
       <p>Leading manufacturer of premium yarns and textile solutions from Surat, India. Quality, innovation, and customer satisfaction since 1998.</p>
@@ -565,21 +565,21 @@ session_start();
       <h4>Quick Links</h4>
       <ul>
         <li><a href="D.tex indai.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="products.html">Our Products</a></li>
-        <li><a href="founder.html">Our Founder</a></li>
-        <li><a href="enquiry.html">Contact Us</a></li>
+        <li><a href="pages/about.html">About Us</a></li>
+        <li><a href="pages/products.html">Our Products</a></li>
+        <li><a href="pages/founder.html">Our Founder</a></li>
+        <li><a href="pages/enquiry.html">Contact Us</a></li>
       </ul>
     </div>
     
     <div class="footer-section">
       <h4>Products</h4>
       <ul>
-        <li><a href="products.html">Nylon Twisted Yarn</a></li>
-        <li><a href="products.html">DTY</a></li>
-        <li><a href="products.html">Jari / Metallic Yarn</a></li>
-        <li><a href="products.html">Fabrics</a></li>
-        <li><a href="products.html">Sizing Beam</a></li>
+        <li><a href="pages/products.html">Nylon Twisted Yarn</a></li>
+        <li><a href="pages/products.html">DTY</a></li>
+        <li><a href="pages/products.html">Jari / Metallic Yarn</a></li>
+        <li><a href="pages/products.html">Fabrics</a></li>
+        <li><a href="pages/products.html">Sizing Beam</a></li>
       </ul>
     </div>
     
