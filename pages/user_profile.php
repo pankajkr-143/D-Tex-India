@@ -150,13 +150,13 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
   .hero{background:linear-gradient(135deg,#fdfdfd,#f2f6ff)}
   .hero-inner{width:100%;max-width:1400px;margin:0 auto;padding: 80px 30px 60px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
   .title{font-weight:800;font-size:clamp(32px,4.8vw,54px);color:var(--brand);margin:0 0 8px}
-  .sub{color:var(--muted);font-size:clamp(16px,1.6vw,18px)}
+  .sub{color:#374151;font-size:clamp(16px,1.6vw,18px)}
   .cta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
   .hero-media{width:100%;border-radius:18px;box-shadow:var(--shadow)}
   /* SECTION BASE */
   .section{width:100%;padding:80px 30px;background:#fff}
   .section h2{margin:0 0 10px;font-size:clamp(24px,3vw,34px);color:var(--brand)}
-  .muted{color:var(--muted)}
+  .muted{color:#374151}
   /* GRID / CARDS */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1400px;margin:0 auto}
   .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
@@ -287,7 +287,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
   .map-container{width:100%;height:280px;border-radius:15px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
   .map-container iframe{width:100%;height:100%;border:0;border-radius:15px}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-  .form-note{font-size:12px;color:var(--muted);margin-top:8px;text-align:center}
+  .form-note{font-size:12px;color:#374151;margin-top:8px;text-align:center}
   
   /* RESPONSIVE */
   @media (max-width:1200px){
